@@ -19,6 +19,7 @@ assertEqual(model.inputLabel({ ...korean, current: 'hangul', label: '한' }, 'KO
 assertEqual(model.inputLabel({ methods: ['keyboard-jp', 'mozc'], current: 'keyboard-jp' }, 'JA', 'Japanese'), 'EN', 'Latin input on a JIS layout is not labelled as Japanese')
 assertEqual(model.inputLabel({ methods: ['keyboard-jp-kana', 'mozc'], current: 'keyboard-jp-kana' }, 'JA', 'Japanese (Kana)'), 'JA', 'a Kana layout types kana and keeps its layout label')
 assertEqual(model.inputLabel({ methods: ['keyboard-jp-kana86', 'mozc'], current: 'keyboard-jp-kana86' }, 'JA', 'Japanese (Kana 86)'), 'JA', 'every Kana variant keeps its layout label')
+assertEqual(model.inputLabel({ methods: ['keyboard-jp-mac', 'mozc'], current: 'keyboard-jp-mac' }, 'JA', 'Japanese (Macintosh)'), 'JA', 'the Macintosh layout types kana and keeps its layout label')
 assertEqual(model.inputLabel({ ...korean, current: 'keyboard-us' }, 'EN', 'English (US)'), 'EN', 'a US layout beside Hangul keeps its label')
 assertEqual(model.inputLabel(korean, 'KO'), 'KO', 'without the layout description the label is left as it reads')
 assertEqual(model.inputLabel({ methods: ['keyboard-kr-kr104'], current: 'keyboard-kr-kr104' }, 'KO', 'Korean (101/104-key compatible)'), 'KO', 'a Korean layout without an engine keeps its layout label')

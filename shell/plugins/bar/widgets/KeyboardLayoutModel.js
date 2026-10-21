@@ -114,14 +114,14 @@ function selectKeyboard(typed, namedByEvent) {
 // type Latin letters on their own. Next to that engine "KO" or "JA" would read
 // as the engine being on, so direct input says what it types instead. The
 // compositor's layout decides, since that is what the keys produce; the Kana
-// variants type kana themselves and keep their label.
+// variants, and Macintosh which is built on Kana, type kana and keep their label.
 function inputLabel(state, fallback, layout) {
   if (!state || !state.current) return fallback
   if (state.current.indexOf("keyboard-") === 0) {
     var composing = (state.methods || []).some(function (method) {
       return method.indexOf("keyboard-") !== 0
     })
-    var latin = /^(Korean|Japanese)\b/.test(layout || "") && !/\bKana\b/.test(layout)
+    var latin = /^(Korean|Japanese)\b/.test(layout || "") && !/\b(Kana|Macintosh)\b/.test(layout)
     return composing && latin ? "EN" : fallback
   }
   if (state.label) return String(state.label).substring(0, 3)
